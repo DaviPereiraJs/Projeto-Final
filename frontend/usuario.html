@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status do Usuário</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Sua Arena</h1>
+            <p>Status de Pagamento</p>
+        </div>
+        <div class="header-actions">
+            <button id="theme-toggle-button" class="theme-toggle-button">
+                🌙
+            </button>
+        </div>
+    </header>
+
+    <div id="user-info-container" style="display: none;">
+        <div class="user-panel">
+            <h1 id="user-name-display"></h1>
+            <p class="status-display-text" id="user-status-display"></p>
+            <div class="payment-details">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data do Pagamento</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payments-history-table">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <p>Qualquer dúvida, entre em contato com o administrativo.</p>
+                <a href="https://wa.me/5588999999999" target="_blank" class="contact-button">Entrar em contato</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="not-found-container" style="display: none;">
+        <h1>Usuário não encontrado.</h1>
+        <p>Verifique o link ou entre em contato com a administração.</p>
+    </div>
+
+    <script src="../js/user.js"></script>
+
+</body>
+</html>
