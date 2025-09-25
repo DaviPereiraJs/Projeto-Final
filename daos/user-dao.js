@@ -13,6 +13,7 @@ class UserDAO {
                     users.name, 
                     users.surname, 
                     users.whatsapp,
+                    users.token,
                     MAX(payments.date) AS last_payment_date
                 FROM users
                 LEFT JOIN payments ON users.id = payments.user_id
@@ -20,10 +21,8 @@ class UserDAO {
                 ORDER BY users.id ASC
             `;
             this.db.all(sql, [], (err, rows) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(rows);
+                if (err) reject(err);
+                else resolve(rows);
             });
         });
     }
@@ -32,22 +31,18 @@ class UserDAO {
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM users WHERE id = ?`;
             this.db.get(sql, id, (err, row) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(row);
+                if (err) reject(err);
+                else resolve(row);
             });
         });
     }
 
     async save(user) {
         return new Promise((resolve, reject) => {
-            const sql = `INSERT INTO users (name, surname, whatsapp) VALUES (?, ?, ?)`;
-            this.db.run(sql, [user.name, user.surname, user.whatsapp], function(err) {
-                if (err) {
-                    reject(err);
-                }
-                resolve(this.lastID);
+            const sql = `INSERT INTO users (name, surname, whatsapp, token) VALUES (?, ?, ?, ?)`;
+            this.db.run(sql, [user.name, user.surname, user.whatsapp, user.token], function(err) {
+                if (err) reject(err);
+                else resolve(this.lastID);
             });
         });
     }
@@ -56,10 +51,8 @@ class UserDAO {
         return new Promise((resolve, reject) => {
             const sql = `DELETE FROM users WHERE id = ?`;
             this.db.run(sql, id, function(err) {
-                if (err) {
-                    reject(err);
-                }
-                resolve(this.changes);
+                if (err) reject(err);
+                else resolve(this.changes);
             });
         });
     }

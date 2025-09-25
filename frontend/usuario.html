@@ -3,58 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status do Usuário</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Área do Usuário</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/frontend/img/Gemini_Generated_Image_41yon441yon441yo.png" type="image/png">
+
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <h1>Sua Arena</h1>
-            <p>Status de Pagamento</p>
+    <main id="user-info-container" style="display:none;">
+        <div class="container-imagem-texto">
+              <img src="/frontend/img/Gemini_Generated_Image_41yon441yon441yo.png" alt="Logo Atletas em Foco" id="site-logo" style="gap: 20px
+             ;">
+             <h1 style="color: #007bff;" >Atletas em Foco</h1>
         </div>
-        <div class="header-actions">
-            <button id="theme-toggle-button" class="theme-toggle-button">
-                🌙
-            </button>
-        </div>
-    </header>
+        <header>
+            <h1 style="color: #007bff;">Bem-vindo(a): </h1>
+            <h2 style="color: #007bff;" id="user-name-display"></h2>
+            <div class="header-actions">
+            <button id="theme-toggle-button" class="theme-toggle-button">🌙</button>
 
-    <div id="user-info-container" style="display: none;">
-        <div class="user-panel">
-            <h1 id="user-name-display"></h1>
-            <p class="status-display-text" id="user-status-display"></p>
-            <div class="payment-details">
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Data do Pagamento</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody id="payments-history-table">
-                            </tbody>
+        </div>
+        </header>
+         <p style="color: #007bff;" >Acesso de Usuario</p>
+
+        <main id="user-cards" class="cards-grid">
+            <div class="interactive-card" id="status-card">
+                <div class="card-header"><h2>Status do Pagamento</h2></div>
+                <div class="card-content"><p id="user-status-display" class="status"></p></div>
+            </div>
+
+            <div class="interactive-card" id="history-card">
+                <div class="card-header"><h2>Histórico de Pagamentos</h2></div>
+                <div class="card-content table-container">
+                    <table id="payments-history-table">
+                        <thead><tr><th>Data</th><th>Valor</th></tr></thead>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="contact-info">
-                <p>Qualquer dúvida, entre em contato com o administrativo.</p>
-                <a href="https://wa.me/5588999999999" target="_blank" class="contact-button">Entrar em contato</a>
-            </div>
+           <div class="interactive-card" id="payment-card">
+    <div class="card-header">
+        <h2>Efetuar Pagamento</h2>
+    </div>
+    <div class="card-content">
+        <p>Valor da mensalidade: <span id="monthly-amount">R$ 30,00</span></p>
+        <div class="pix-info">
+            <label for="pix-code">Chave Pix Copia e Cola:</label>
+            <br>
+            <textarea id="pix-code" style="text-align: center;">616.003.833-86</textarea>
+            <button id="copy-pix-button" class="btn">Copiar Chave Pix</button>
+            <a id="whatsapp-link" href="#" target="_blank" class="btn">Enviar Comprovante (WhatsApp)</a>
         </div>
     </div>
-    
-    <div id="not-found-container" style="display: none;">
-        <h1>Usuário não encontrado.</h1>
-        <p>Verifique o link ou entre em contato com a administração.</p>
+</div>
+
+
+            <div class="interactive-card" id="delete-card">
+                <div class="card-header"><h2>Excluir Usuário</h2></div>
+                <div class="card-content">
+                    <button id="delete-button">Excluir minha conta</button>
+                    <p id="delete-message"></p>
+                </div>
+            </div>
+        </main>
+    </main>
+
+    <div id="not-found-container" style="display:none;">
+        <h2>Usuário não encontrado</h2>
+        <p>O link de acesso está incorreto ou expirou.</p>
     </div>
 
-    <script src="../js/user.js"></script>
+    <footer class="main-footer">
+    <p>© 2025 Atletas em Foco - Admin: <span id="admin-name">Davi Nascimento Pereira</span></p>
+    <p>WhatsApp: <span id="admin-whatsapp">88 98152-2318</span></p>
+    <p>Email: <span id="admin-email">admin@email.com</span></p>
+</footer>
 
+    <script src="js/user.js"></script>
 </body>
 </html>
