@@ -1,0 +1,475 @@
+/* ===============================
+    Paleta de Cores
+    =============================== */
+
+/* Paleta de Cores para Modo Claro (Padrão) */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #28a745;
+    --danger-color: #dc3545;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-color: #343a40;
+    --muted-text-color: #6c757d;
+    --input-background: #e9ecef;
+    --border-color: #dee2e6;
+    --shadow-light: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+    --paid-color: #28a745;
+    --unpaid-color: #ffc107;
+    --overdue-color: #dc3545;
+}
+
+/* Paleta de Cores para Modo Escuro */
+body.dark-mode {
+    --primary-color: #6c8cd5;
+    --secondary-color: #218838;
+    --danger-color: #c82333;
+    --background-color: #1a1a1a;
+    --card-background: #2a2a2a;
+    --text-color: #e0e0e0;
+    --muted-text-color: #adb5bd;
+    --input-background: #3a3a3a;
+    --border-color: #444444;
+    --shadow-light: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    --paid-color: #218838;
+    --unpaid-color: #e0a800;
+    --overdue-color: #c82333;
+}
+
+/* ===============================
+    Base Geral
+    =============================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Animação de Entrada */
+#login-container,
+#admin-panel,
+#user-info-container,
+#not-found-container {
+    width: 100%;
+    max-width: 1200px;
+    opacity: 0;
+    animation: fadeInSlide 0.8s ease-out forwards;
+}
+
+@keyframes fadeInSlide {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===============================
+    Login Container
+    =============================== */
+#login-container {
+    padding: 2.5rem;
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    text-align: center;
+    max-width: 400px;
+    margin-top: 5vh;
+}
+
+.logo h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.logo p {
+    color: var(--muted-text-color);
+    margin-bottom: 2.5rem;
+}
+
+/* ===============================
+    Formulários e Botões
+    =============================== */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+input[type="password"],
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--input-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    appearance: none;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+button,
+.contact-button {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Mensagem de Erro */
+.error-message {
+    color: var(--danger-color);
+    margin-top: 1rem;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* ===============================
+    Headers
+    =============================== */
+#admin-panel header, #user-info-container header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#site-logo {
+    width: 40px;
+    height: auto;
+}
+
+.logo-and-title h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.logo-and-title p {
+    font-size: 0.9rem;
+    color: var(--muted-text-color);
+    margin: 0;
+    margin-left: 10px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+.header-actions #logout-button {
+    width: auto;
+    background: var(--danger-color);
+    padding: 0.75rem 1.25rem;
+}
+
+.header-actions #logout-button:hover {
+    background-color: #c82333;
+}
+
+.theme-toggle-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.theme-toggle-button:hover {
+    background-color: var(--input-background);
+}
+
+/* ===============================
+    Cards
+    =============================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+    transition: all 0.5s ease;
+    width: 100%;
+}
+
+.interactive-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.interactive-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.interactive-card h2 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Regra para o conteúdo do card */
+#admin-main .interactive-card .card-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+#admin-main .interactive-card.expanded .card-content {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: visible;
+}
+
+/* Estilo para quando o card está expandido */
+#admin-main.has-expanded-card .interactive-card:not(.expanded) {
+    opacity: 0.6;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+/* Estilos de botões */
+.toggle-details-button {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.9rem;
+    background: var(--muted-text-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* ===============================
+    Status
+    =============================== */
+.status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.paid { background-color: var(--paid-color); box-shadow: 0 2px 6px rgba(0,0,0,0.15);}
+.unpaid { background-color: var(--unpaid-color); box-shadow: 0 2px 6px rgba(0,0,0,0.15);}
+.overdue { background-color: var(--overdue-color); box-shadow: 0 2px 6px rgba(0,0,0,0.15);}
+
+/* ===============================
+    Tabelas
+    =============================== */
+.table-container {
+    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+th {
+    background-color: var(--input-background);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    position: sticky;
+    top: 0;
+}
+
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--input-background);
+}
+
+/* ===============================
+    User Cards
+    =============================== */
+#user-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+#user-cards .interactive-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#user-cards .interactive-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+#user-cards h2 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+#user-cards .interactive-card {
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+#user-cards .card-content {
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+}
+
+#user-cards .table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
+#user-cards table {
+    min-width: 0;
+    width: 100%;
+    table-layout: auto;
+}
+
+/* ===============================
+    Footer
+    =============================== */
+.main-footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    background: var(--card-background);
+    border-top: 1px solid var(--border-color);
+    color: var(--muted-text-color);
+    font-size: 0.9rem;
+}
+
+.container-imagem-texto {
+    display: flex; /* Habilita o Flexbox */
+    align-items: center; /* Alinha os itens verticalmente */
+    gap: 20px; /* Adiciona o espaçamento entre a imagem e o título */
+}
+
+/* Opcional: Para controlar o tamanho da imagem */
+.container-imagem-texto img {
+    width: 40px; /* Altere para o tamanho que preferir */
+}
+
+/* ===============================
+    Responsividade
+    =============================== */
+@media (max-width: 520px) {
+    body { padding: 1rem; }
+    
+    .logo-and-title h1 { font-size: 1.2rem; }
+
+    #user-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    #user-cards .interactive-card {
+        padding: 1rem;
+    }
+
+    #user-cards th, #user-cards td {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+        white-space: normal;
+        word-break: break-all;
+    }
+
+    .main-footer {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+}
