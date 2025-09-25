@@ -88,10 +88,15 @@ Página do Usuário:
 
 O user.js busca os dados do usuário a partir do access_link na URL e atualiza o DOM para exibir o status e o histórico de pagamentos.
 
+Processo de Pagamento:
+
+O usuário vai adentrar no link unico gerado a partir do cadastro feito pelo admin, depois para o a card (Efetuar Pagamento), copiar a chave pix do admin e quando o mesmo efetuar o pagamento ele irar no link que tem abaixo da chave pix que o redirecionará ao número de WhatsApp pessoal do admin, e lá ele vai anexar o comprovante do pagamento. Após o admin confirma o comprovante, ele vai entrar na página de admin e vai até o card (Registrar Pagamento), vai selecionar o usúario que fez o envio do comprovante, colocarar o valor da mensalidade junto do comprovante que o usuario enviou via WhatsApp e irar confirmar o pagameno. Diante disso, o sistema atualizará os staus de ambas as telas, tanto a do admin quando a do usuario para pago.  
+
 4. Gestão de Erros
 Backend: O servidor retorna códigos de status HTTP claros (200 para sucesso, 401 para não autorizado, 400 para erro de requisição e 500 para erro interno), e envia mensagens de erro em formato JSON, que são fáceis de serem lidas pelo front-end.
 
 Frontend: Todas as chamadas fetch são encapsuladas em blocos try...catch e verificam o res.ok. Se uma requisição falha, a mensagem de erro é exibida em um alert, informando o usuário sobre o problema.
+
 
 5. Próximas Melhorias (Roteiro)
 Pagamento Automatizado com API de Pix: A sua solução manual é temporária. O próximo passo ideal é integrar o sistema com uma API de pagamento (como o Asaas) para automatizar o processo.
