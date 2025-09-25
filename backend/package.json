@@ -1,7 +1,7 @@
 {
-  "name": "arena-monthly-backend",
+  "name": "atletas-em-foco",
   "version": "1.0.0",
-  "description": "Backend para Arena Society - mensalidades (SQLite + Express)",
+  "description": "Sistema de gestão de mensalidades para o Atletas em Foco.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "sqlite3": "^5.1.6",
-    "uuid": "^9.0.0",
+    "cors": "^2.8.5",
     "body-parser": "^1.20.2",
-    "cors": "^2.8.5"
+    "express-session": "^1.18.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1"
   }
 }
