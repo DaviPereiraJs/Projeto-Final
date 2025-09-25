@@ -2,6 +2,8 @@ Documentação Técnica Detalhada: Sistema Atletas em Foco
 1. Visão Geral e Arquitetura
 O sistema Atletas em Foco é uma aplicação de gerenciamento de mensalidades construída sobre uma arquitetura client-server. A aplicação tem como principal objetivo automatizar a gestão de assinaturas, fornecendo painéis distintos para o administrador e para o usuário final. Usuário e senha é: admin 1234.
 
+Densenvolvedores: Davi Nascimento (Dev-backend), Gustavo (Dev-Backend), Ivan Magalhães (Dev-Fronend)
+
 Backend: Implementado em Node.js com o framework Express.js, o servidor atua como uma API REST. Ele é responsável por gerenciar a lógica de negócio, a segurança e a persistência de dados.
 
 Frontend: A interface é desenvolvida com HTML, CSS e JavaScript puro, garantindo um carregamento rápido e uma experiência fluida. O design é responsivo e adaptável a diferentes tamanhos de tela.
