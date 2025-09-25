@@ -299,6 +299,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
+    document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
+        document.querySelectorAll(".card").forEach(c => {
+            c.classList.remove("expanded");
+            c.classList.add("collapsed");
+        });
+        card.classList.remove("collapsed");
+        card.classList.add("expanded");
+    });
+});
+
+
     // --- Checa o status do login ao carregar a página (NOVO) ---
     const checkLoginStatus = async () => {
         try {

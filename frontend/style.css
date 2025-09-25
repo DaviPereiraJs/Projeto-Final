@@ -110,6 +110,20 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.card {
+    transition: all 0.4s ease;
+    flex: 1; /* estado normal */
+    cursor: pointer;
+}
+
+.card.expanded {
+    flex: 0 0 85%; /* ocupa 85% */
+}
+
+.card.collapsed {
+    flex: 0 0 15%; /* divide o resto */
+}
+
 input[type="password"],
 input[type="text"],
 input[type="tel"],
